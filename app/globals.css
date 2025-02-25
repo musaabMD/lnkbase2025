@@ -1,4 +1,4 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -8,7 +8,7 @@ body {
 }
 
 /* It makes the HTML progress bar filling smooth when value change. */
-progress::-webkit-progress-value {
+/* progress::-webkit-progress-value {
   transition: 0.6s width ease-out;
 }
 
@@ -19,4 +19,27 @@ progress::-webkit-progress-value {
   .btn {
     @apply !capitalize;
   }
+} */ 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 245, 245, 245;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+}
+
+/* Hide scrollbar but maintain functionality */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
