@@ -1,9 +1,8 @@
 "use client";
-
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Layout from '@/components/Layout';
-import { getAppBySlug, spreadsheetData, getIdFromSlug } from '@/app/data/appData';
+import { getAppBySlug, spreadsheetData } from '@/app/data/appData';
 
 export default function AppPage({ params }) {
   const { slug } = params;
@@ -14,15 +13,12 @@ export default function AppPage({ params }) {
 
   useEffect(() => {
     if (!slug) return;
-    
     // Find the app by slug
     const foundApp = getAppBySlug(slug);
-    
     if (foundApp) {
       // Get spreadsheet data using the app ID
       const appId = foundApp.id;
       const foundData = spreadsheetData[appId] || [];
-      
       // Simulate API delay
       setTimeout(() => {
         setApp(foundApp);
@@ -40,7 +36,7 @@ export default function AppPage({ params }) {
       <Layout title="App Not Found">
         <div className="text-center py-10">
           <h1 className="text-3xl font-bold text-red-500 mb-4">App Not Found</h1>
-          <p className="mb-6">The app you're looking for doesn't exist.</p>
+          <p className="mb-6">The app you{"'"}re looking for doesn{"'"}t exist.</p>
           <button
             onClick={() => router.push('/')}
             className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
@@ -67,7 +63,6 @@ export default function AppPage({ params }) {
     <Layout title={app.name}>
       <h1 className="text-2xl font-bold mb-2">{app.name}</h1>
       <p className="text-gray-600 mb-6">{app.description}</p>
-      
       <div className="spreadsheet-container bg-white p-4 border rounded">
         <div className="p-4">
           <table className="w-full border-collapse">
@@ -75,7 +70,7 @@ export default function AppPage({ params }) {
               {data.map((row, rowIndex) => (
                 <tr key={rowIndex}>
                   {row.map((cell, cellIndex) => (
-                    <td 
+                    <td
                       key={cellIndex}
                       className="border border-gray-300 p-2"
                     >
@@ -87,11 +82,10 @@ export default function AppPage({ params }) {
             </tbody>
           </table>
         </div>
-        
         <div className="mt-4 flex justify-end">
-          <button 
+          <button
             className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded"
-            onClick={() => alert('Save functionality would be implemented with a backend')}
+            onClick={() => alert("Save functionality would be implemented with a backend")}
           >
             Save
           </button>
