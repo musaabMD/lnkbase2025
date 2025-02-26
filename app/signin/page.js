@@ -105,7 +105,7 @@ export default function Login() {
 
             <div className="mt-6 text-center">
               <p className="text-sm text-gray-500">
-                By continuing, you agree to {config.appName}'s{" "}
+                By continuing, you agree to {config.appName}&apos;s{" "}
                 <Link href="/terms" className="text-blue-600 hover:underline">
                   Terms of Service
                 </Link>{" "}
