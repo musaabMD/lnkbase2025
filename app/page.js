@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { apps, getSlug, categories } from '@/app/data/appData';
+import { apps, categories } from '@/app/data/appData';
 import Layout from '@/components/Layout';
 import AppIcon from '@/components/AppIcon';
 
@@ -23,69 +23,48 @@ export default function Home() {
 
   return (
     <Layout>
-      {/* Featured App Banner */}
-      <section className="mb-10 mt-2">
-        <div className="bg-gradient-to-br from-blue-900 to-indigo-800 rounded-xl overflow-hidden shadow-lg text-white">
-          <div className="md:flex items-center">
-            <div className="md:w-2/3 p-8 md:p-10">
-              <h1 className="text-3xl md:text-4xl font-bold mb-4">Powerful Spreadsheet Apps</h1>
-              <p className="text-lg text-blue-100 mb-6">
-                Discover the tools you need to organize, analyze, and visualize your data. All in one place.
-              </p>
-              <Link 
-                href="#apps"
-                className="inline-block bg-white text-blue-800 font-bold py-3 px-6 rounded-lg hover:bg-blue-50 transition duration-200"
-              >
-                Explore Apps
-              </Link>
-            </div>
-            <div className="md:w-1/3 p-6 flex justify-center">
-              <div 
-                className="w-48 h-48 rounded-xl flex items-center justify-center relative overflow-hidden"
-              >
-                <div className="absolute inset-0 bg-blue-500 opacity-20"></div>
-                <div className="grid grid-cols-2 gap-2 p-3 transform rotate-12">
-                  {apps.slice(0, 4).map(app => (
-                    <div 
-                      key={app.id}
-                      className="w-16 h-16 rounded-xl flex items-center justify-center shadow-md"
-                      style={{ background: `linear-gradient(145deg, ${app.bgColor}, ${app.bgColor}cc)` }}
-                    >
-                      <div className="text-2xl text-white font-bold">{app.name.charAt(0)}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+      {/* Minimal Hero Section */}
+      <section className="py-8 relative overflow-hidden">
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center max-w-3xl mx-auto">
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight">
+              Your Ultimate App Store
+            </h1>
+            
+            <p className="text-lg text-gray-600 mb-6">
+              Discover the best tools and apps to supercharge your productivity
+            </p>
           </div>
         </div>
       </section>
 
       {/* Categories Row */}
       <section className="mb-6" id="apps">
-        <div className="flex overflow-x-auto py-2 hide-scrollbar">
-          <div className="flex space-x-2">
-            {categories.map(category => (
-              <button 
-                key={category.name} 
-                onClick={() => setSelectedCategory(category.name)}
-                className={`flex items-center px-4 py-2 rounded-full whitespace-nowrap ${
-                  selectedCategory === category.name 
-                    ? 'bg-blue-600 text-white' 
-                    : 'bg-white border border-gray-200 text-gray-800 hover:bg-gray-50'
-                }`}
-              >
-                <span className="w-5 h-5 mr-2" dangerouslySetInnerHTML={{ __html: category.icon }} />
-                <span className="font-medium">{category.name}</span>
-              </button>
-            ))}
+        <div className="flex justify-center">
+          <div className="flex overflow-x-auto py-2 hide-scrollbar">
+            <div className="flex space-x-2 px-4">
+              {categories.map(category => (
+                <button 
+                  key={category.name} 
+                  onClick={() => setSelectedCategory(category.name)}
+                  className={`flex items-center px-4 py-2 rounded-full whitespace-nowrap ${
+                    selectedCategory === category.name 
+                      ? 'bg-blue-600 text-white' 
+                      : 'bg-white border border-gray-200 text-gray-800 hover:bg-gray-50'
+                  }`}
+                >
+                  <span className="w-5 h-5 mr-2" dangerouslySetInnerHTML={{ __html: category.icon }} />
+                  <span className="font-medium">{category.name}</span>
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Apps Grid */}
-      <section>
-        <h2 className="text-2xl font-medium mb-6 text-gray-900 pl-2">
+      <section className="px-4">
+        <h2 className="text-2xl font-medium mb-6 text-gray-900">
           {selectedCategory === 'All' ? 'All Apps' : `${selectedCategory} Apps`}
         </h2>
         
@@ -103,7 +82,7 @@ export default function Home() {
             </button>
           </div>
         ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-y-6 gap-x-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
             {filteredApps.map(app => (
               <AppIcon key={app.id} app={app} />
             ))}

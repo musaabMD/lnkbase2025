@@ -145,7 +145,7 @@ export default function PricingPage() {
             <div>
               <h3 className="text-lg font-medium mb-2">Can I change my plan later?</h3>
               <p className="text-gray-600">
-                Yes, you can upgrade or downgrade your plan at any time. If you upgrade, you'll be charged the prorated difference. If you downgrade, you'll receive credit toward your next billing cycle.
+                Yes, you can upgrade or downgrade your plan at any time. If you upgrade, you&apos;ll be charged the prorated difference. If you downgrade, you&apos;ll receive credit toward your next billing cycle.
               </p>
             </div>
             
@@ -159,7 +159,7 @@ export default function PricingPage() {
             <div>
               <h3 className="text-lg font-medium mb-2">Is there a free trial?</h3>
               <p className="text-gray-600">
-                Yes, all paid plans come with a 14-day free trial. You won't be charged until the trial period ends, and you can cancel anytime.
+                Yes, all paid plans come with a 14-day free trial. You won&apos;t be charged until the trial period ends, and you can cancel anytime.
               </p>
             </div>
           </div>

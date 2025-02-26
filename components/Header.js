@@ -1,5 +1,6 @@
 "use client";
 
+<<<<<<< HEAD
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -53,5 +54,19 @@ export default function Header() {
         </div>
       </div>
     </header>
+=======
+import React from 'react';
+import Header from './Header';
+
+export default function Layout({ children }) {
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <Header />
+      
+      <main className="container mx-auto p-4 max-w-6xl">
+        {children}
+      </main>
+    </div>
+>>>>>>> 3fd4e15 (Initial commit)
   );
 }
