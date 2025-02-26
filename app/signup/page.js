@@ -4,10 +4,9 @@ import Link from "next/link";
 import { useState } from "react";
 import { createClient } from "@/libs/supabase/client";
 import config from "@/config";
+import { Sparkles, Zap, Lock } from 'lucide-react';
 
-// This a login/singup page for Supabase Auth.
-// Successfull login redirects to /api/auth/callback where the Code Exchange is processed (see app/api/auth/callback/route.js).
-export default function Login() {
+export default function Signup() {
   const supabase = createClient();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -47,11 +46,33 @@ export default function Login() {
         <div className="max-w-md mx-auto">
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold text-gray-900 mb-2">
-              Welcome back to {config.appName}
+              Create your account
             </h1>
             <p className="text-gray-600">
-              Sign in to continue to your account
+              Join {config.appName} to discover the best tools for your workflow
             </p>
+          </div>
+
+          {/* Feature Highlights */}
+          <div className="grid grid-cols-3 gap-4 mb-8">
+            <div className="text-center">
+              <div className="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-3">
+                <Sparkles className="w-5 h-5 text-blue-600" />
+              </div>
+              <p className="text-sm text-gray-600">AI-Powered Discovery</p>
+            </div>
+            <div className="text-center">
+              <div className="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-3">
+                <Zap className="w-5 h-5 text-blue-600" />
+              </div>
+              <p className="text-sm text-gray-600">Instant Integration</p>
+            </div>
+            <div className="text-center">
+              <div className="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-3">
+                <Lock className="w-5 h-5 text-blue-600" />
+              </div>
+              <p className="text-sm text-gray-600">Secure Access</p>
+            </div>
           </div>
 
           <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-200">
@@ -93,13 +114,13 @@ export default function Login() {
 
             <div className="mt-8 pt-6 text-center border-t border-gray-200">
               <h2 className="text-xl font-semibold text-gray-900 mb-2">
-                New to {config.appName}?
+                Already have an account?
               </h2>
               <Link 
-                href="/signup" 
+                href="/signin" 
                 className="text-blue-600 hover:text-blue-700 font-medium"
               >
-                Create an account
+                Sign in here
               </Link>
             </div>
 
