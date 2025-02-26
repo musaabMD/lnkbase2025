@@ -17,8 +17,8 @@ export default function Header() {
     const pathSegments = pathname.split('/').filter(Boolean);
     if (pathSegments.length > 0 && pathSegments[0] !== 'category') {
       const slug = pathSegments[0];
-      const app = getAppBySlug(slug);
-      // Not storing the result anywhere since we're not using it
+      // Not using app variable to avoid ESLint warning
+      getAppBySlug(slug);
     }
   }, [pathname]);
 
