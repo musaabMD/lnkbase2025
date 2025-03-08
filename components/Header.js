@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -48,10 +47,10 @@ export default function Header() {
                 Sign up
               </Link>
               <Link
-                href="/pricing"
+                href="/submit"
                 className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:from-blue-700 hover:to-indigo-700 transition duration-150 shadow-sm inline-flex items-center"
               >
-                Upgrade now
+                Submit App
               </Link>
             </div>
 
@@ -89,10 +88,10 @@ export default function Header() {
                 Sign up
               </Link>
               <Link
-                href="/pricing"
+                href="/submit"
                 className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:from-blue-700 hover:to-indigo-700 transition duration-150 shadow-sm text-center mx-2"
               >
-                Upgrade now
+                Submit App
               </Link>
             </div>
           </div>
